@@ -35,7 +35,7 @@ const Pokedex = ({ pokemons }) => {
     element = (
       <>
         <PokeSearch setPokeList={setFilteredPokemonList} pokeList={pokemonList}/>
-        <PokeListLoader offset={0} limit={30} pokeListDefault={pokemonList}/>
+        <PokeListLoader offset={0} limit={12} pokeListDefault={pokemonList}/>
       </>
     );
   }
