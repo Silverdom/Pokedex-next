@@ -38,7 +38,7 @@ const Pokecard = ({ pokemon = { url: "", name: "" } }) => {
         cardImage &&
         <div className="col-sm-12 col-md-4 col-lg-3">
           <div className="card" id={ pokemon.name }>
-            <div className='card-img-top'>
+            <div className='card-img-top test-img'>
               <Image src={ cardImage } alt="Card image cap" width={ 502 } height={ 502 } />
             </div>
             <div className="card-body">
