@@ -8,7 +8,9 @@ export default function App({ Component, pageProps }) {
   return (
     <StrictMode>
       <Head>
+        <title>Pokeinfo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Application which displays all pokemons with details about type,species and many more" />
       </Head>
       <Pokemainnav />
       <div className='cs-container w-75 m-auto p-5'>

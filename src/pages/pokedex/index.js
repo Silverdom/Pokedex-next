@@ -1,28 +1,46 @@
 import { useState } from "react";
 import PokeListLoader from "../components/PokeListLoader";
 import PokeSearch from "../components/PokeSearch";
+import Head from "next/head";
 
 const Pokedex = ({ pokemons }) => {
   let [pokemonList, setPokemonList] = useState(pokemons);
   const doesNotHavePokemon = !pokemonList;
+  let element = {};
 
   const setFilteredPokemonList = (pokedata) => {
     console.log(pokedata);
     setPokemonList(pokedata);
   }
 
-  if (doesNotHavePokemon) {
+  const wrapperDiv = (wrapperElement) => {
     return (
+      <>
+        <Head>
+          <title>Pokeinfo | Pokedex</title>
+          <meta name="description" content="List of pokemons for all generations with type and species sorted in ascending order of id" />
+        </Head>
+        {
+          wrapperElement
+        }
+      </>
+    )
+  }
+
+  if (doesNotHavePokemon) {
+    element = (
       <h1>Sorry, please try again</h1>
     );
   } else {
-    return (
+    element = (
       <>
         <PokeSearch setPokeList={setFilteredPokemonList} pokeList={pokemonList}/>
         <PokeListLoader offset={0} limit={30} pokeListDefault={pokemonList}/>
       </>
     );
   }
+
+  return wrapperDiv(element);
 }
 
 export const getServerSideProps = async ({ context }) => {
