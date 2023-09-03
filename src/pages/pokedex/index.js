@@ -34,8 +34,10 @@ const Pokedex = ({ pokemons }) => {
   } else {
     element = (
       <>
-        <PokeSearch setPokeList={setFilteredPokemonList} pokeList={pokemonList}/>
-        <PokeListLoader offset={0} limit={12} pokeListDefault={pokemonList}/>
+        <PokeSearch setPokeList={ setFilteredPokemonList } pokeList={ pokemonList } />
+        <div className="add-scroll">
+          <PokeListLoader offset={ 0 } limit={ 12 } pokeListDefault={ pokemonList } />
+        </div>
       </>
     );
   }
