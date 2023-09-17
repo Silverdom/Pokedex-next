@@ -13,17 +13,17 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Application which displays all pokemons with details about type,species and many more" />
       </Head>
-      <Pokemainnav />
-      <div class="container-fluid p-0 m-0">
-        <div class="main-container">
-          <div className='cs-container'>
-            <Component { ...pageProps } />
-          </div>
-
-          <div class="poke-loader-container">
-            <div class="poke-loader">
-              <img src="/pokeball_PNG_colored.png" width="50px" height="50px" />
+      <div className="container-fluid p-0 m-0">
+        <div className='row w-100'>
+          <div className='col-md-8'>
+            <div className="main-container">
+              <div className='cs-container'>
+                <Component { ...pageProps } />
+              </div>
             </div>
+          </div>
+          <div className='col-md-4 p-0'>
+            <Pokemainnav />
           </div>
         </div>
       </div>
