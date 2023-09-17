@@ -17,8 +17,8 @@ const Pokedex = ({ pokemons }) => {
     return (
       <>
         <Head>
-          <title>Pokeinfo | Pokedex</title>
-          <meta name="description" content="List of pokemons for all generations with type and species sorted in ascending order of id" />
+          <title>Pokeinfo (stash) | Pokedexs</title>
+          <meta name="description" content="Lists of pokemons for all generations with type and species sorted in ascending order of id" />
         </Head>
         {
           wrapperElement

@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'PixelDs';
+  src: url("../../public/fonts/Nintendo-DS-BIOS.ttf");
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  font-family: "Flexo-Demi",arial,sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +19,89 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes showafterdelay {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.typewriter{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid transparent; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 2s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+body {
+  font-size: 18px !important;
+}
+
+.oak-auth {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 2rem);
+}
+.select-box {
+  min-height: 8rem;
+  height: max-content;
+  width: 12rem;
+  padding: 0rem 1rem 1rem 1rem;
+  border-radius: 8px;
+  animation: showafterdelay 0s;
+  animation-delay: 0s;
+}
+
+.select-box ul {
+  padding: 0px;
+}
+
+.select-box .select-box-item:hover::before {
+  position: absolute;
+  content: ">";
+  left: 5%;
+}
+
+.select-box-item {
+  position: relative;
+  line-height: normal;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.select-box-primary {
+  background-image: url("/sprites/textbox/select-box-primary.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.font-ds {
+  font-family: "PixelDs", sans-serif;
+}
+
+.text-box {
+  height: 8rem;
+}
+
+.text-box-primary {
+  background-image: url("/sprites/textbox/textbox-primary.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+  overflow: hidden;
+}
+
+.text-box-content {
+  height: 8rem;
 }
 
 .type-grass {
@@ -53,98 +140,4 @@
 .w-card {
   max-width: 175px;
   height: 225px;
-}
-
-@keyframes container {
-  from {
-    transform: translateX(-95vw);
-  }
-
-  to {
-    transform: translateX(0px);
-  }
-}
-
-@keyframes rotateinf {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-.cs-container {
-  overflow-y: hidden;
-  width: 75%;
-  height: 95%;
-  margin: auto;
-  padding: 25px;
-}
-.main-container {
-  background-color: #ee1515;
-  width: calc(100vw - 70px);
-  height: 92vh;
-  margin-right: 100vw;
-  animation-name: container;
-  animation-duration: 1s;
-  position: relative;
-}
-
-.poke-loader {
-  rotate: 30deg;
-  width: 50px;
-  height: 50px;
-}
-
-.poke-loading {
-  animation: rotateinf 1s linear infinite;
-}
-
-.poke-loader-container {
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  padding: 10px 10px 10px 0px;
-  background-color: #ee1515;
-  border-radius: 0px 50% 50% 0px;
-}
-.main-nav {
-  height: 8vh;
-}
-.add-scroll {
-  height: 100%;
-  overflow: scroll;
-}
-.main-nav ul {
-  height: 100%;
-  color: black;
-}
-.main-nav li {
-  position: relative;
-  z-index: -1;
-  width: 15vw;
-  height: 100%;
-  padding: .24em .3em .25em;
-}
-
-li::after {
-  position: absolute;
-  background-color: #3dc7ef;
-  height: 100%;
-  width: 100%;
-  transform: skewX(-10deg);
-}
-
-.main-nav li a {
-  text-decoration: none;
-  list-style: none;
-  color: unset;
-  font-size: 1.5rem;
-  margin-left: 30px;
-  max-width: max-content;
-}
-.nav-active {
-  background-color: #ee1515;
-  color: white;
 }
