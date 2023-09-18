@@ -1,6 +1,4 @@
-export default function ({ selectItems }) {
-
-  console.log(selectItems);
+ const SelectBox = ({ selectItems }) => {
   return (
     <div className={"select-box select-box-primary font-ds mt-auto mb-3 text-4xl text-center" }>
       <ul>
@@ -14,5 +12,6 @@ export default function ({ selectItems }) {
       </ul>
     </div>
   );
-
 }
+
+export default SelectBox;
