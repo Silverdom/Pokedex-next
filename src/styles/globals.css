@@ -59,6 +59,12 @@ body {
   border-radius: 8px;
   animation: showafterdelay 0s;
   animation-delay: 0s;
+  background-color: white;
+}
+
+.main-container {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .select-box ul {

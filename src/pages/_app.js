@@ -4,8 +4,9 @@ import Head from "next/head";
 import Pokemainnav from './components/Pokemainnav'
 import Image from 'next/image';
 import { StrictMode } from 'react';
+import { SessionProvider } from "next-auth/react"
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps: { session, ...pageProps} }) {
   return (
     <StrictMode>
       <Head>
@@ -17,9 +18,9 @@ export default function App({ Component, pageProps }) {
         <div className='row w-100'>
           <div className='col-md-8'>
             <div className="main-container">
-              <div className='cs-container'>
+              <SessionProvider session={session}>
                 <Component { ...pageProps } />
-              </div>
+              </SessionProvider>
             </div>
           </div>
           <div className='col-md-4 p-0'>

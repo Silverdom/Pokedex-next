@@ -2,9 +2,12 @@ import { useState } from "react";
 import PokeListLoader from "../components/PokeListLoader";
 import PokeSearch from "../components/PokeSearch";
 import Head from "next/head";
+import AuthOak from "../components/AuthOak";
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Pokedex = ({ pokemons }) => {
   let [pokemonList, setPokemonList] = useState(pokemons);
+  const { data: session } = useSession();
   const doesNotHavePokemon = !pokemonList;
   let element = {};
 
@@ -20,6 +23,9 @@ const Pokedex = ({ pokemons }) => {
           <title>Pokeinfo (stash) | Pokedexs</title>
           <meta name="description" content="Lists of pokemons for all generations with type and species sorted in ascending order of id" />
         </Head>
+        {
+          session ? "" : <AuthOak />
+        }
         {
           wrapperElement
         }
