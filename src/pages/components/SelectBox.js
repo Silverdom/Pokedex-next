@@ -1,4 +1,4 @@
- const SelectBox = ({ selectItems }) => {
+ const SelectBox = ({ selectItems = [] }) => {
   return (
     <div className={"select-box select-box-primary font-ds mt-auto mb-3 text-4xl text-center" }>
       <ul>
